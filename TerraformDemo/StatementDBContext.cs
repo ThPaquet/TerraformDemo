@@ -7,7 +7,7 @@ namespace TerraformDemo
     {
         public StatementDBContext(DbContextOptions<StatementDBContext> options) : base(options)
         {
-
+            this.Database.Migrate();
         }
 
         public DbSet<Statement> Statements { get; set; }
