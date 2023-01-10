@@ -24,7 +24,9 @@ namespace TerraformDemo.Controllers
         [HttpPost]
         public ActionResult<Statement> Post([FromBody] Statement statement)
         {
-            return this._context.Statements.Add(statement).Entity;
+            Statement savedStatement = this._context.Statements.Add(statement).Entity;
+            this._context.SaveChanges();
+            return savedStatement; 
         }
     }
 }
